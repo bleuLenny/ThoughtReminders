@@ -53,11 +53,19 @@ let remindersController = {
       }
     });
     
-    res.redirect("/reminders")
+    res.redirect("/reminders");
   },
 
   delete: (req, res) => {
     // Implement this code
+    let reminderToFind = req.params.id;
+    database.cindy.reminders.findIndex(reminderIndex => {
+      if(reminderIndex.id == reminderToFind){
+        database.cindy.reminders.pop(reminderIndex);
+      }
+    });
+
+    res.redirect("/reminders");
   },
 };
 
