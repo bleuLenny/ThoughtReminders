@@ -7,7 +7,7 @@ I worked on the following tasks:
 
 Alex Amog:
 I worked on the following tasks:
-1. <Insert Some Task Here> - This task is responsible for xyz functionality.
+1. <Update reminder in controller> - This task is responsible for updating reminders.
 2. <Insert Some Task Here> - This task is responsible for xyz functionality.
 3. <Insert Some Task Here> - This task is responsible for xyz functionality.
 
