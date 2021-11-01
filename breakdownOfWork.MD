@@ -9,7 +9,7 @@ Alex Amog:
 I worked on the following tasks:
 1. <Update reminder in controller> - This task is responsible for updating reminders.
 2. <Delete reminder in controller> - This task is responsible for delete a reminder.
-3. <Insert Some Task Here> - This task is responsible for xyz functionality.
+3. <Watch all videos for reminderapp> - This task helped me understand how the start code works.
 
 Alex Hong:
 I worked on the following tasks:
