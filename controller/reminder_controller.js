@@ -58,9 +58,9 @@ let remindersController = {
 
   delete: (req, res) => {
     // Implement this code
-    let reminderToFind = req.params.id;
+    let reminderToFind = req.params.id; //Takes reminder ID of specific reminder
     database.cindy.reminders.findIndex(reminderIndex => {
-      if(reminderIndex.id == reminderToFind){
+      if(reminderIndex.id == reminderToFind){ //If the reminder id is found, pop out the specific reminder
         database.cindy.reminders.pop(reminderIndex);
       }
     });
