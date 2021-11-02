@@ -3,7 +3,7 @@ let Database = {
         reminders: [{id: 1, title: "abc", description: "abcabc", completed: false}]
     },
     alex: {
-        reminders: []
+        reminders: [{id: 2, title: "bbb", description: "aaaaaaaaaa", completed: false}]
     } 
 }
 

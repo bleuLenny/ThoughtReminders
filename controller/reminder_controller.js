@@ -42,10 +42,30 @@ let remindersController = {
 
   update: (req, res) => {
     // implement this code
+    let reminderToFind = req.params.id; // find the id of item need to update
+
+    // update the old data with new data that user typed in
+    database.cindy.reminders.find(reminder => {
+      if (reminder.id == reminderToFind){
+        reminder.title = req.body.title;
+        reminder.description = req.body.description;
+        reminder.completed = (req.body.completed === "true");
+      }
+    });
+    
+    res.redirect("/reminders");
   },
 
   delete: (req, res) => {
     // Implement this code
+    let reminderToFind = req.params.id; //Takes reminder ID of specific reminder
+    database.cindy.reminders.findIndex(reminderIndex => {
+      if(reminderIndex.id == reminderToFind){ //If the reminder id is found, pop out the specific reminder
+        database.cindy.reminders.pop(reminderIndex);
+      }
+    });
+
+    res.redirect("/reminders");
   },
 };
 
