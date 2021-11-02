@@ -26,8 +26,8 @@ app.use(
 
 // Routes start here
 
-const authRoute = require('./routes/authRoute'); //Auth routes for users who are logged in.
-const indexRoute = require('./routes/indexRoute'); //routes for non-logged in users.
+// const authRoute = require('./routes/authRoute'); //Auth routes for users who are logged in.
+// const indexRoute = require('./routes/indexRoute'); //routes for non-logged in users.
 
 
 app.get("/reminders", reminderController.list);
