@@ -1,4 +1,5 @@
-let database = require("../database");
+const passport = require("../middleware/passport");
+const {database} = require("../models/userModel");
 
 let authController = {
   login: (req, res) => {
@@ -9,13 +10,32 @@ let authController = {
     res.render("auth/register");
   },
 
-  loginSubmit: (req, res) => {
-    // implement
+  loginTest: (req, res, next) => {
+    next();
   },
 
-  registerSubmit: (req, res) => {
-    // implement
+  loginSubmit: passport.authenticate("local", {
+    successRedirect: "/reminders",
+    failureRedirect: "/login",
+  }),
+
+  logout: (req, res) => {
+    req.logout();
+    res.redirect("/login");
   },
+
+  registerSubmit: (req, res,) => {
+    // implement
+    userInput = req.body;
+    database.push({
+      id: Date.now(),
+      name: userInput.email.split("@")[0],
+      email: userInput.email,
+      password: userInput.password,
+    });
+
+    res.redirect("/login");
+  }
 };
 
 module.exports = authController;
