@@ -72,6 +72,9 @@ app.post("/register", authController.registerSubmit);
 app.post("/login", authController.loginSubmit);
 app.get("/logout", authController.logout);
 
+app.get('/auth/github', authController.gitLogin);
+app.get('/auth/github/callback', authController.gitLoginCB);
+
 app.listen(port, () => {
   console.log(`🚀 Server has started on port ${port}`);
 });
