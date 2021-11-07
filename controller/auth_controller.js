@@ -1,3 +1,4 @@
+const passport = require('../middleware/passport');
 let database = require("../database");
 
 let authController = {
@@ -10,12 +11,20 @@ let authController = {
   },
 
   loginSubmit: (req, res) => {
-    // implement
+    passport.authenticate("local", {
+      successRedirect: "/reminders",
+      failureRedirect: "/login",
+    })
   },
 
   registerSubmit: (req, res) => {
     // implement
   },
+
+  logout: (req, res) => {
+    req.logout();
+    res.redirect('/auth/login/'); //Then redirect user to the login page.
+  }
 };
 
 module.exports = authController;
