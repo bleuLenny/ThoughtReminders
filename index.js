@@ -21,7 +21,8 @@ app.use(
 
 
 // Routes start here
-const passport = require("passport");
+const passport = require('./middleware/passport');
+// const passport = require('passport');
 const indexRoute = require('./routes/indexRoute'); //routes for non-logged in users.
 const authRoute = require('./routes/authRoute'); //Auth routes for users who are logged in.
 
