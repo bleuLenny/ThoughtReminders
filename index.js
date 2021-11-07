@@ -5,7 +5,6 @@ const path = require("path");
 
 const app = express();
 
-
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: false }));
 app.use(ejsLayouts);
@@ -20,46 +19,31 @@ app.use(
 )
 
 
-// Routes start here
 const passport = require('./middleware/passport');
-// const passport = require('passport');
-const indexRoute = require('./routes/indexRoute'); //routes for non-logged in users.
-const authRoute = require('./routes/authRoute'); //Auth routes for users who are logged in.
-
+const { forwardAuthenticated, ensureAuthenticated } = require("./middleware/checkAuth");
+const authController = require('./controller/auth_controller');
+const reminderController = require('./controller/reminder_controller');
 //Middlware
 app.use(ejsLayouts);
 app.use(express.urlencoded({ extended: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-// app.get("/reminders", reminderController.list);
-// app.get("/reminder/new", reminderController.new);
-// app.get("/reminder/:id", reminderController.listOne);
-// app.get("/reminder/:id/edit", reminderController.edit);
-// app.post("/reminder/", reminderController.create);
-// app.post("/reminder/update/:id", reminderController.update);
-// app.post("/reminder/delete/:id", reminderController.delete);
+// Routes start here
+app.get("/reminders", ensureAuthenticated, reminderController.list);
+app.get("/reminder/new", ensureAuthenticated, reminderController.new);
+app.get("/reminder/:id", ensureAuthenticated, reminderController.listOne);
+app.get("/reminder/:id/edit", ensureAuthenticated, reminderController.edit);
+app.post("/reminder/", ensureAuthenticated, reminderController.create);
+app.post("/reminder/update/:id", ensureAuthenticated, reminderController.update);
+app.post("/reminder/delete/:id", ensureAuthenticated, reminderController.delete);
 
 // Fix this to work with passport! The registration does not need to work, you can use the fake database for this.
-// app.get("/register", authController.register);
-// app.post("/register", authController.registerSubmit);
-// app.post("/login", authController.loginSubmit);
+app.get("/register", forwardAuthenticated, authController.register);
+app.post('/register', authController.registerSubmit);
 
-app.use((req, res, next) => {
-  console.log(`User details are: `);
-  console.log(req.user);
-
-  console.log("Entire session object:");
-  console.log(req.session);
-
-  console.log(`Session details are: `);
-  console.log(req.session.passport);
-  next();
-});
-
-//Will implement this later.
-app.use("/", indexRoute);
-app.use("/auth", authRoute);
+app.get('/login', forwardAuthenticated, authController.login);
+app.post('/login', authController.loginSubmit);
 
 app.listen(3001, function () {
   console.log(
