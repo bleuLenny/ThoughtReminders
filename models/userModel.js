@@ -34,6 +34,13 @@ const userModel = {
     }
     throw new Error(`Couldn't find user with id: ${id}`);
   },
+  findByName: (name) => {
+    const user = database.find((user) => user.name === name);
+    if (user) {
+      return user;
+    }
+    throw new Error(`Couldn't find user with id: ${name}`);
+  }
 };
 
 module.exports = { database, userModel };

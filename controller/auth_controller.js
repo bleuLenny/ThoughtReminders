@@ -16,12 +16,12 @@ let authController = {
 
   loginSubmit: passport.authenticate("local", {
     successRedirect: "/reminders",
-    failureRedirect: "/login",
+    failureRedirect: "/auth/login",
   }),
 
   logout: (req, res) => {
     req.logout();
-    res.redirect("/login");
+    res.redirect("/auth/login");
   },
 
   registerSubmit: (req, res,) => {
@@ -34,11 +34,11 @@ let authController = {
       password: userInput.password,
     });
 
-    res.redirect("/login");
+    res.redirect("/auth/login");
   },
 
   gitLogin: passport.authenticate("github"),
-  gitLoginCB: passport.authenticate("github",  { failureRedirect: '/login' }),
+  gitLoginCB: passport.authenticate("github",  { failureRedirect: '/auth/login' }),
   function(req, res) {
     // Successful authentication, redirect home.
     res.redirect('/reminders');
