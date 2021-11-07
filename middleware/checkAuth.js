@@ -5,7 +5,7 @@ module.exports = {
             return next(); //Lets us move forward.
         };
         console.log('Sending user to login page.')
-        res.redirect('/auth/login');
+        res.redirect('/login');
     },
     forwardAuthenticated: function (req, res, next) {
         if (!req.isAuthenticated()) { //If the user is not already logged in.
