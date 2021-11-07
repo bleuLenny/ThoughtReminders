@@ -23,6 +23,7 @@ let authController = {
       email: req.body.email,
       password: req.body.password
     })
+    res.render('/login')
   },
 
   logout: (req, res) => {
