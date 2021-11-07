@@ -1,5 +1,5 @@
 const passport = require('../middleware/passport');
-let {userDatabase} = require('../models/usermodel');
+let { userDatabase } = require('../models/usermodel');
 
 let authController = {
   login: (req, res) => {

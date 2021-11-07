@@ -28,7 +28,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Routes start here
-app.get("/reminders", ensureAuthenticated, reminderController.list);
+app.get("/reminders",ensureAuthenticated, reminderController.list);
 app.get("/reminder/new", reminderController.new);
 app.get("/reminder/:id", reminderController.listOne);
 app.get("/reminder/:id/edit", reminderController.edit);
