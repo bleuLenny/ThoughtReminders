@@ -1,5 +1,5 @@
 const passport = require('../middleware/passport');
-let database = require("../database");
+let {userDatabase} = require('../models/usermodel');
 
 let authController = {
   login: (req, res) => {
@@ -17,7 +17,12 @@ let authController = {
     }),
 
   registerSubmit: (req, res) => {
-    // implement
+    userDatabase.push({
+      id: 3,
+      name: "test",
+      email: req.body.email,
+      password: req.body.password
+    })
   },
 
   logout: (req, res) => {
