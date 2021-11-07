@@ -2,11 +2,12 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const userController = require("../controller/userController");
 const GitHubStrategy = require('passport-github').Strategy;
+const githubKey = require("./githubKeys")
 
 const gitLogin = new GitHubStrategy(
   {
-    clientID: "a0a1311e74be52efc549",
-    clientSecret: "6547411378677019ddbf4835589ef5c92b451445",
+    clientID: githubKey.clientID,
+    clientSecret: githubKey.clientSecret,
     callbackURL: "http://localhost:8000/auth/github/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
