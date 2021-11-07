@@ -1,7 +1,7 @@
 module.exports = {
     ensureAuthenticated: function (req, res, next) {
         if (req.isAuthenticated()) { //Checks if user has a session
-            console.log('User has session.')
+            console.log('Ensure Authentication successful.')
             return next(); //Lets us move forward.
         };
         console.log('Sending user to login page.')
