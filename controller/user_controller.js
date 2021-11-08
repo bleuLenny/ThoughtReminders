@@ -22,8 +22,8 @@ function isUserValid(user, password) {
 }
 
 
-const getUserByGithubID = (id) => {
-    let user = userModel.findGithubId(id);
+const findOrAdd = (profile) => {
+    let user = userModel.findOrAddGithub(profile);
     if (user) {
         console.log('Not null')
         return user;
@@ -34,5 +34,5 @@ const getUserByGithubID = (id) => {
 module.exports = {
     getUserByEmailIdAndPassword,
     getUserById,
-    getUserByGithubID
+    findOrAdd
 };

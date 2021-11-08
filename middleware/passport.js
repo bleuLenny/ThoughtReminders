@@ -25,7 +25,7 @@ const githubLogin = new GitHubStrategy({
     callbackURL: "http://localhost:3001/auth/github/callback"
 },
     function (accessToken, refreshToken, profile, done) {
-        const user = userController.getUserByGithubID(profile.id);
+        const user = userController.findOrAdd(profile);
         console.log(profile["displayName"])
         return user
             ? done(null, user) //If true send the first parameter to the passport.seralizeUser

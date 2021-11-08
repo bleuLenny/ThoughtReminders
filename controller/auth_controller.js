@@ -5,7 +5,9 @@ let authController = {
   login: (req, res) => {
     res.render("auth/login");
   },
-
+  dashboard: (req, res) => {
+    res.render("./dashboard", { req });
+  },
   register: (req, res) => {
     res.render("auth/register");
   },

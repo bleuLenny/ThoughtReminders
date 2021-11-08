@@ -4,7 +4,9 @@ let remindersController = {
   list: (req, res) => {
     res.render("reminder/index", { reminders: database.cindy.reminders });
   },
-
+  dashboard: (req, res) => {
+    res.render("./dashboard", { req });
+  },
   new: (req, res) => {
     res.render("reminder/create");
   },

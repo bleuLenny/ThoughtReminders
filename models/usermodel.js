@@ -8,14 +8,6 @@ const userDatabase = [
         role: "user",
     },
     {
-        id: 2,
-        name: "Alex Smith",
-        email: "alex@gmail.com",
-        password: "123",
-        githubID: "76136244",
-        role: "user",
-    },
-    {
         id: 3,
         name: "Armaan Dhanji",
         email: "armaan@gmail.com",
@@ -40,12 +32,19 @@ const userModel = {
         }
         throw new Error(`Couldn't find user with id: ${id}`);
     },
-    findGithubId: (id) => {
-        const user = userDatabase.find((user) => user.githubID === id)
+    findOrAddGithub: (profile) => {
+        let user = userDatabase.find((user) => user.githubID === profile.id)
         if (user) {
             return user;
         }
-        throw new Error(`Couldn't find user with github id: ${id}`);
+        console.log('Adding github user')
+        userDatabase.push({ id: userDatabase.length, name: profile["displayName"], email: profile["email"], password: null, githubID: profile.id, role: 'user' })
+        console.log('Added user.')
+        user = userDatabase.find((user) => user.githubID === profile.id)
+        if (user) {
+            return user;
+        }
+        // throw new Error(`Couldn't find user with github id: ${id}`);
     },
 };
 
