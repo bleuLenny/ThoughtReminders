@@ -1,18 +1,21 @@
 const database = [
   {
-    id: 33076940,
+    id: 1,
+    githubID: "33076940",
     name: "cindy",
     email: "jimmy123@gmail.com",
     password: "jimmy123!",
   },
   {
     id: 2,
+    githubID: "0",
     name: "Johnny Doe",
     email: "johnny123@gmail.com",
     password: "johnny123!",
   },
   {
     id: 3,
+    githubID: "2",
     name: "Jonathan Chen",
     email: "jonathan123@gmail.com",
     password: "jonathan123!",
@@ -34,12 +37,12 @@ const userModel = {
     }
     throw new Error(`Couldn't find user with id: ${id}`);
   },
-  findByName: (name) => {
-    const user = database.find((user) => user.name === name);
+  findByGitHubID: (githubID) => {
+    const user = database.find((user) => user.githubID === githubID);
     if (user) {
       return user;
     }
-    throw new Error(`Couldn't find user with id: ${name}`);
+    throw new Error(`Couldn't find user with githubID: ${githubID}`);
   }
 };
 

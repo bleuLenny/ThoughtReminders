@@ -2,16 +2,18 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const userController = require("../controller/userController");
 const GitHubStrategy = require('passport-github').Strategy;
-const githubKey = require("./githubKeys")
+const process = require("process");
+const dotenv = require('dotenv');
+dotenv.config();
 
 const gitLogin = new GitHubStrategy(
   {
-    clientID: githubKey.clientID,
-    clientSecret: githubKey.clientSecret,
-    callbackURL: "http://localhost:8000/auth/github/callback"
+    clientID: process.env.GITHUB_CLIENT_ID,
+    clientSecret: process.env.GITHUB_CLIENT_SECRET,
+    callbackURL: `http://localhost:${process.env.PORT}/auth/github/callback`
   },
   function(accessToken, refreshToken, profile, cb) {
-    userController.getUserById(profile.id, function (err, user) {
+    userController.getUserByGitHubID(profile.id, function (err, user) {
       return cb(err, user);
     });
   }

@@ -1,9 +1,10 @@
 const express = require("express");
 const path = require("path");
 const ejsLayouts = require("express-ejs-layouts");
-const port = process.env.port || 8000;
 const session = require("express-session");
 const passport = require("./middleware/passport");
+const port = process.env.PORT || 3002;
+require('dotenv').config();
 const app = express();
 
 app.use(express.static(path.join(__dirname, "public")));

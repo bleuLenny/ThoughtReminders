@@ -38,11 +38,6 @@ let authController = {
   },
 
   gitLogin: passport.authenticate("github"),
-  gitLoginCB: passport.authenticate("github",  { failureRedirect: '/auth/login' }),
-  function(req, res) {
-    // Successful authentication, redirect home.
-    res.redirect('/reminders');
-  }
 };
 
 module.exports = authController;

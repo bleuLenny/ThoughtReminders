@@ -16,8 +16,8 @@ const getUserById = (id) => {
   }
   return null;
 };
-const getUserByName = (name) => {
-  let user = userModel.findByName(name);
+const getUserByGitHubID = (githubID) => {
+  let user = userModel.findByGitHubID(githubID);
   if (user) {
     return user;
   }
@@ -31,5 +31,5 @@ function isUserValid(user, password) {
 module.exports = {
   getUserByEmailIdAndPassword,
   getUserById,
-  getUserByName,
+  getUserByGitHubID,
 };
