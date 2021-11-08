@@ -12,13 +12,11 @@ module.exports = {
         res.redirect('/');
     },
     isAdmin: function (req, res, next) {
-        console.log('CHECK')
-        console.log(req.user);
-        if (req.user.role === 'admin') {
-            console.log('Is an admin')
-            return next();
+        if (!req.isAuthenticated() || req.user.role !== 'admin') { //If the user is not already logged in.
+            res.redirect('/')
         };
-        console.log('Not an admin.')
-        res.redirect('/');
+        if (req.user.role === 'admin') {
+            return next();
+        }
     },
 };

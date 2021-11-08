@@ -33,6 +33,7 @@ app.use("/", indexRoute);
 app.use("/auth", authRoute);
 app.use("/admin", adminRoute);
 
+
 app.listen(3001, function () {
   console.log(
     "Server running. Visit: localhost:3001/ in your browser 🚀"

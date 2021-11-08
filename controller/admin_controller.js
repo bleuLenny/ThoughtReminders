@@ -3,7 +3,7 @@ let { userDatabase } = require('../models/usermodel');
 
 let adminController = {
     login: (req, res) => {
-        res.render("admin/index");
+        res.render("admin/index", { name:req.user.name });
     },
     deleteSession: (req, res) => {
 
