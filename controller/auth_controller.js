@@ -22,19 +22,14 @@ let authController = {
       name: "test",
       email: req.body.email,
       password: req.body.password
-    })
-    res.render('/auth/login')
+    });
+    res.render('auth/login')
   },
 
   logout: (req, res) => {
     req.logout();
     res.redirect('/auth/login'); //Then redirect user to the login page.
-  },
-  githubLoginSubmit: passport.authenticate('github', { failureRedirect: '/auth/login' }), function(req, res) {
-    // Successful authentication, redirect home.
-    res.redirect('/');
-  },
-
+  }
 };
 
 module.exports = authController;
