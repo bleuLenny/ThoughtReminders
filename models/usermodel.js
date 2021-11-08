@@ -7,7 +7,7 @@ const userDatabase = [
         role: "user",
     },
     {
-        id: 3,
+        id: 2,
         name: "Armaan Dhanji",
         email: "armaan@gmail.com",
         password: "helloWorld!",
@@ -31,18 +31,19 @@ const userModel = {
         throw new Error(`Couldn't find user with id: ${id}`);
     },
     findOrAddGithub: (profile) => {
+        if (!profile) {
+            throw new Error(`Couldn't find user with github id: ${id}`);
+        };
         let user = userDatabase.find((user) => user.githubID === profile.id)
         if (user) {
             return user;
         }
-        console.log('Adding github user')
-        userDatabase.push({ id: userDatabase.length + 1, name: profile["displayName"], githubID: profile.id, role: 'user' })
-        console.log('Added user.')
+        userDatabase.push({ id: userDatabase.length + 1, name: profile["displayName"], githubID: profile.id, role: 'user' }) //If the github user is not already in the db, they will be added and then returned.
         user = userDatabase.find((user) => user.githubID === profile.id)
         if (user) {
+            console.log(user)
             return user;
         }
-        // throw new Error(`Couldn't find user with github id: ${id}`);
     },
 };
 
