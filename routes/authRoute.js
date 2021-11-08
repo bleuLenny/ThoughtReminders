@@ -11,4 +11,6 @@ router.get('/login', forwardAuthenticated, authController.login);
 router.post('/login', authController.loginSubmit);
 router.get('/logout', ensureAuthenticated, authController.logout);
 
+router.get('/github', forwardAuthenticated, authController.githubPage);
+router.post('/github', forwardAuthenticated, authController.githubLoginSubmit);
 module.exports = router
