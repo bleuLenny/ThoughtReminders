@@ -49,9 +49,9 @@ const userModel = {
       user = {
         id: database.length + 1,
         githubID: profile.id,
-        name: profile["displayname"],
-        email: `${profile["userName"]}@github.com`,
-        password: profile["userName"]
+        name: profile.displayName || profile.username,
+        email: `${profile.username}@github.com`,
+        password: profile.username
       }
       database.push(user);
       return user;

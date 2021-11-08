@@ -78,8 +78,11 @@ let remindersController = {
   },
 
   dashboard: (req, res) => {
-    console.log("abc", req)
     res.render("dashboard", {req});
+  },
+
+  admindashboard: (req, res) => {
+    res.render("adminDashboard");
   }
 };
 

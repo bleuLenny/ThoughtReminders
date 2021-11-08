@@ -21,4 +21,6 @@ router.post("reminders/delete/:id", ensureAuthenticated, reminderController.dele
 
 router.get("/dashboard", ensureAuthenticated, reminderController.dashboard);
 
+router.get("/admindashboard", ensureAuthenticated, reminderController.admindashboard);
+
 module.exports = router;

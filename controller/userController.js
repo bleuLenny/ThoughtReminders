@@ -12,12 +12,13 @@ const getUserByEmailIdAndPassword = (email, password) => {
 const getUserById = (id) => {
   let user = userModel.findById(id);
   if (user) {
+    console.log(user)
     return user;
   }
   return null;
 };
 const getUserByGitHubID = (profile) => {
-  let user = userModel.findByGitHubID(profile.id);
+  let user = userModel.findByGitHubID(profile);
   if (user) {
     return user;
   }
