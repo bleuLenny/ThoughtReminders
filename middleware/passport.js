@@ -1,7 +1,7 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const userController = require("../controller/userController");
-const GitHubStrategy = require('passport-github').Strategy;
+const GitHubStrategy = require('passport-github2').Strategy;
 const process = require("process");
 const dotenv = require('dotenv');
 dotenv.config();
@@ -12,10 +12,13 @@ const gitLogin = new GitHubStrategy(
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
     callbackURL: `http://localhost:${process.env.PORT}/auth/github/callback`
   },
-  function(accessToken, refreshToken, profile, cb) {
-    userController.getUserByGitHubID(profile.id, function (err, user) {
-      return cb(err, user);
-    });
+  function(accessToken, refreshToken, profile, done) {
+    const user = userController.getUserByGitHubID(profile);
+    return user
+    ? done(null, user)
+    : done(null, false, {
+        message: "Your login details are not valid. Please try again",
+      });
   }
 );
 

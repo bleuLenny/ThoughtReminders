@@ -47,7 +47,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/reminders", indexRoute);
+app.use("/", indexRoute);
 app.use("/auth", authRoute);
 
 app.listen(port, () => {

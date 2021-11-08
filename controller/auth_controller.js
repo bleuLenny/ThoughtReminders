@@ -13,6 +13,11 @@ let authController = {
   loginTest: (req, res, next) => {
     next();
   },
+  
+  dashboard: (req, res, next) => {
+    console.log(req);
+    res.render("./dashboard", {req});
+  },
 
   loginSubmit: passport.authenticate("local", {
     successRedirect: "/reminders",

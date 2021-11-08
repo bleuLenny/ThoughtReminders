@@ -2,22 +2,24 @@ const express = require("express");
 const router = express.Router();
 const {ensureAuthenticated, isAdmin} = require("../middleware/checkAuth");
 const reminderController = require("../controller/reminder_controller");
+const authController = require("../controller/auth_controller");
 
 // Routes start here
-router.get("/", ensureAuthenticated, reminderController.list);
+router.get("/reminders", ensureAuthenticated, reminderController.list);
 
-router.get("/new", reminderController.new);
+router.get("/reminders/new", ensureAuthenticated, reminderController.new);
 
-router.get("/:id", reminderController.listOne);
+router.get("/reminders/:id", ensureAuthenticated, reminderController.listOne);
 
-router.get("/:id/edit", reminderController.edit);
+router.get("/reminders/:id/edit", ensureAuthenticated, reminderController.edit);
 
-router.post("/", reminderController.create);
-
-// Implement this yourself
-router.post("/update/:id", reminderController.update);
+router.post("/reminders", ensureAuthenticated, reminderController.create);
 
 // Implement this yourself
-router.post("/delete/:id", reminderController.delete);
+router.post("reminders/update/:id", ensureAuthenticated, reminderController.update);
+// Implement this yourself
+router.post("reminders/delete/:id", ensureAuthenticated, reminderController.delete);
+
+router.get("/dashboard", ensureAuthenticated, authController.dashboard);
 
 module.exports = router;

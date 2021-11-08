@@ -16,8 +16,8 @@ const getUserById = (id) => {
   }
   return null;
 };
-const getUserByGitHubID = (githubID) => {
-  let user = userModel.findByGitHubID(githubID);
+const getUserByGitHubID = (profile) => {
+  let user = userModel.findByGitHubID(profile.id);
   if (user) {
     return user;
   }
