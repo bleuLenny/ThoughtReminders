@@ -32,7 +32,7 @@ const userModel = {
     },
     findOrAddGithub: (profile) => {
         if (!profile) {
-            throw new Error(`Couldn't find user with github id: ${id}`);
+            throw new Error(`Argument sent is ${profile}`);
         };
         let user = userDatabase.find((user) => user.githubID === profile.id)
         if (user) {

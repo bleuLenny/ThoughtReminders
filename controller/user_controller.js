@@ -25,7 +25,6 @@ function isUserValid(user, password) {
 const findOrAdd = (profile) => {
     let user = userModel.findOrAddGithub(profile);
     if (user) {
-        console.log('Not null')
         return user;
     }
     return null;
