@@ -6,12 +6,10 @@ const userController = require('../controller/user_controller');
 const localLogin = new LocalStrategy(
     {
         usernameField: "email", //We are logging in with email instead of username
-        passwordField: "password"
     },
     (email, password, done) => {
         console.log('Using local strategy')
         const user = userController.getUserByEmailIdAndPassword(email, password);
-        console.log(user);
         return user
             ? done(null, user) //If true send the first parameter to the passport.seralizeUser
             : done(null, false, { //If false
@@ -23,11 +21,7 @@ const localLogin = new LocalStrategy(
 
 passport.serializeUser((user, done) => {
     console.log('Seralizing user.')
-    //Creates a session for that user
-    //We store information about that user 
-    //We receive the user from the localLogin 
-    //req.user = { information here }
-    console.log(user.id);
+    //Creates a session for that user and stores their information temporarily
     done(null, user.id); //We store the user's id since its the most unique id
 });
 

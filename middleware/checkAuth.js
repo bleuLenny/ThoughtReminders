@@ -7,7 +7,6 @@ module.exports = {
     },
     forwardAuthenticated: function (req, res, next) {
         if (!req.isAuthenticated()) { //If the user is not already logged in.
-            console.log('User is not logged in. Going next.');
             return next();
         };
         res.redirect('/');
