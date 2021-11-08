@@ -13,7 +13,7 @@ let authController = {
   loginSubmit:
     passport.authenticate("local", {
       successRedirect: "/reminders",
-      failureRedirect: "/login",
+      failureRedirect: "/auth/login",
     }),
 
   registerSubmit: (req, res) => {
@@ -23,12 +23,12 @@ let authController = {
       email: req.body.email,
       password: req.body.password
     })
-    res.render('/login')
+    res.render('/auth/login')
   },
 
   logout: (req, res) => {
     req.logout();
-    res.redirect('/login'); //Then redirect user to the login page.
+    res.redirect('/auth/login'); //Then redirect user to the login page.
   }
 };
 
