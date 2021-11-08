@@ -4,7 +4,8 @@ const userDatabase = [
         name: "Cindy Smith",
         email: "cindy@gmail.com",
         password: "cindy123",
-        githubID: 0000,
+        githubID: "0000",
+        role:"user",
     },
     {
         id: 2,
@@ -12,6 +13,15 @@ const userDatabase = [
         email: "alex@gmail.com",
         password: "123",
         githubID: "76136244",
+        role:"user",
+    },
+    {
+        id: 3,
+        name: "Armaan Dhanji",
+        email: "armaan@gmail.com",
+        password: "helloWorld!",
+        githubID: "0000",
+        role:"admin",
     },
 ];
 

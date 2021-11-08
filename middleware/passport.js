@@ -35,14 +35,12 @@ const githubLogin = new GitHubStrategy({
 );
 
 passport.serializeUser((user, done) => {
-    console.log('Seralizing user.')
     //Creates a session for that user and stores their information temporarily
     console.log(user);
     done(null, user.id); //We store the user's id since its the most unique id
 });
 
 passport.deserializeUser((id, done) => {
-    console.log('Deserealize')
     /*
     Everytime a page is refreshed or rendered, the server will call this function and 
     check if we have that user inside the database.

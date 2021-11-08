@@ -11,4 +11,14 @@ module.exports = {
         };
         res.redirect('/');
     },
+    isAdmin: function (req, res, next) {
+        console.log('CHECK')
+        console.log(req.user);
+        if (req.user.role === 'admin') {
+            console.log('Is an admin')
+            return next();
+        };
+        console.log('Not an admin.')
+        res.redirect('/');
+    },
 };

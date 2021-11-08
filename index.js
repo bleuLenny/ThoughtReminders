@@ -20,6 +20,8 @@ app.use(
 const passport = require('./middleware/passport');
 const indexRoute = require('./routes/indexRoute');
 const authRoute = require('./routes/authRoute');
+const adminRoute = require('./routes/adminRoute');
+
 
 //Middlware
 app.use(ejsLayouts);
@@ -29,6 +31,7 @@ app.use(passport.session());
 
 app.use("/", indexRoute);
 app.use("/auth", authRoute);
+app.use("/admin", adminRoute);
 
 app.listen(3001, function () {
   console.log(
