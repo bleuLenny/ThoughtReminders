@@ -22,7 +22,17 @@ function isUserValid(user, password) {
 }
 
 
+const getUserByGithubID = (id) => {
+    let user = userModel.findGithubId(id);
+    if (user) {
+        console.log('Not null')
+        return user;
+    }
+    return null;
+}
+
 module.exports = {
     getUserByEmailIdAndPassword,
     getUserById,
+    getUserByGithubID
 };

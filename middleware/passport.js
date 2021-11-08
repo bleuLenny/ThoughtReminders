@@ -19,28 +19,30 @@ const localLogin = new LocalStrategy(
     }
 );
 
-
-
 const githubLogin = new GitHubStrategy({
     clientID: process.env.GITHUB_CLIENT_ID,
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
     callbackURL: "http://localhost:3001/auth/github/callback"
 },
     function (accessToken, refreshToken, profile, done) {
-        userController.findOrCreate({ githubId: profile.id }, function (err, user) {
-            return done(err, user);
-        });
+        const user = userController.getUserByGithubID(profile.id);
+        return user
+            ? done(null, user) //If true send the first parameter to the passport.seralizeUser
+            : done(null, false, { //If false
+                message: "Your login is not valid. Please try again"
+            });
     }
 );
-
 
 passport.serializeUser((user, done) => {
     console.log('Seralizing user.')
     //Creates a session for that user and stores their information temporarily
+    console.log(user);
     done(null, user.id); //We store the user's id since its the most unique id
 });
 
 passport.deserializeUser((id, done) => {
+    console.log('Deserealize')
     /*
     Everytime a page is refreshed or rendered, the server will call this function and 
     check if we have that user inside the database.

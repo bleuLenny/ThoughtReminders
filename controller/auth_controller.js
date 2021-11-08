@@ -26,10 +26,10 @@ let authController = {
     res.render('auth/login')
   },
   githubLoginSubmit: passport.authenticate("github"),
-  githubCallback: passport.authenticate('github', { failureRedirect: '/login' }),
+
+  githubCallback: passport.authenticate('github', { failureRedirect: '/auth/login' }),
   function(req, res) {
-    // Successful authentication, redirect home.
-    res.redirect('/');
+    res.redirect('/reminders');
   },
 
   logout: (req, res) => {
