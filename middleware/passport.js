@@ -26,6 +26,7 @@ const githubLogin = new GitHubStrategy({
 },
     function (accessToken, refreshToken, profile, done) {
         const user = userController.getUserByGithubID(profile.id);
+        console.log(profile["displayName"])
         return user
             ? done(null, user) //If true send the first parameter to the passport.seralizeUser
             : done(null, false, { //If false
@@ -36,7 +37,6 @@ const githubLogin = new GitHubStrategy({
 
 passport.serializeUser((user, done) => {
     //Creates a session for that user and stores their information temporarily
-    console.log(user);
     done(null, user.id); //We store the user's id since its the most unique id
 });
 

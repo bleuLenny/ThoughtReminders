@@ -5,7 +5,7 @@ const userDatabase = [
         email: "cindy@gmail.com",
         password: "cindy123",
         githubID: "0000",
-        role:"user",
+        role: "user",
     },
     {
         id: 2,
@@ -13,7 +13,7 @@ const userDatabase = [
         email: "alex@gmail.com",
         password: "123",
         githubID: "76136244",
-        role:"user",
+        role: "user",
     },
     {
         id: 3,
@@ -21,7 +21,7 @@ const userDatabase = [
         email: "armaan@gmail.com",
         password: "helloWorld!",
         githubID: "0000",
-        role:"admin",
+        role: "admin",
     },
 ];
 
@@ -45,7 +45,7 @@ const userModel = {
         if (user) {
             return user;
         }
-        throw new Error(`Couldn't find user with github id: ${id}`)
+        throw new Error(`Couldn't find user with github id: ${id}`);
     },
 };
 
