@@ -18,32 +18,17 @@ app.use(
   })
 )
 const passport = require('./middleware/passport');
-const { forwardAuthenticated, ensureAuthenticated } = require("./middleware/checkAuth");
-const authController = require('./controller/auth_controller');
-const reminderController = require('./controller/reminder_controller');
+const indexRoute = require('./routes/indexRoute');
+const authRoute = require('./routes/authRoute');
+
 //Middlware
 app.use(ejsLayouts);
 app.use(express.urlencoded({ extended: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Routes start here
-app.get("/reminders",ensureAuthenticated, reminderController.list);
-app.get("/reminder/new", reminderController.new);
-app.get("/reminder/:id", reminderController.listOne);
-app.get("/reminder/:id/edit", reminderController.edit);
-app.post("/reminder/", reminderController.create);
-app.post("/reminder/update/:id", reminderController.update);
-app.post("/reminder/delete/:id", reminderController.delete);
-
-// Fix this to work with passport! The registration does not need to work, you can use the fake database for this.
-app.get("/register", forwardAuthenticated, authController.register);
-app.post('/register', authController.registerSubmit);
-
-app.get('/login', forwardAuthenticated, authController.login);
-app.post('/login', authController.loginSubmit);
-app.get('/logout', ensureAuthenticated, authController.logout);
-
+app.use("/", indexRoute);
+app.use("/auth", authRoute);
 
 app.listen(3001, function () {
   console.log(
