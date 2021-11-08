@@ -34,9 +34,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use((req, res, next) => {
-  console.log(`User details are: `);
-  console.log(req.user);
-  console.log('Session time:', req.session['cookie']['originalMaxAge']) //Session cookie. Set this to 0 to revoke session.
+  console.log(`User details are: ${req.user}`);
+  console.log(`Session time: ${req.session['cookie']['originalMaxAge']}`) //Session cookie. Set this to 0 to revoke session.
   next();
 });
 
@@ -45,7 +44,5 @@ app.use("/auth", authRoute);
 app.use("/admin", adminRoute);
 
 app.listen(3001, function () {
-  console.log(
-    "Server running. Visit: localhost:3001/ in your browser 🚀"
-  );
+  console.log("Server running. Visit: localhost:3001/ in your browser 🚀");
 });
