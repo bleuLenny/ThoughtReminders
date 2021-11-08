@@ -27,7 +27,6 @@ const indexRoute = require('./routes/indexRoute');
 const authRoute = require('./routes/authRoute');
 const adminRoute = require('./routes/adminRoute');
 
-
 //Middlware
 app.use(ejsLayouts);
 app.use(express.urlencoded({ extended: true }));
@@ -36,14 +35,9 @@ app.use(passport.session());
 
 app.use((req, res, next) => {
   console.log(`User details are: `);
-  console.log(req.user);
-
-  console.log("Entire session object:");
-  console.log(req.session);
-  console.log(req.session['cookie']['originalMaxAge']) //Session cookie. Set this to 0 to revoke session.
-
-  console.log(`Session details are: `);
-  console.log(req.session.passport);
+  // console.log(req.user);
+  console.log(req.session)
+  // console.log('Session time:', req.session['cookie']['originalMaxAge']) //Session cookie. Set this to 0 to revoke session.
   next();
 });
 
