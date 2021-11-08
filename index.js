@@ -35,16 +35,14 @@ app.use(passport.session());
 
 app.use((req, res, next) => {
   console.log(`User details are: `);
-  // console.log(req.user);
-  // console.log('Session time:', req.session['cookie']['originalMaxAge']) //Session cookie. Set this to 0 to revoke session.
+  console.log(req.user);
+  console.log('Session time:', req.session['cookie']['originalMaxAge']) //Session cookie. Set this to 0 to revoke session.
   next();
 });
 
 app.use("/", indexRoute);
 app.use("/auth", authRoute);
 app.use("/admin", adminRoute);
-
-
 
 app.listen(3001, function () {
   console.log(

@@ -38,7 +38,7 @@ const userModel = {
             return user;
         }
         console.log('Adding github user')
-        userDatabase.push({ id: userDatabase.length, name: profile["displayName"], email: profile["email"], password: null, githubID: profile.id, role: 'user' })
+        userDatabase.push({ id: userDatabase.length + 1, name: profile["displayName"], githubID: profile.id, role: 'user' })
         console.log('Added user.')
         user = userDatabase.find((user) => user.githubID === profile.id)
         if (user) {
