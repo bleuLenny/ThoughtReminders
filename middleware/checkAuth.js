@@ -12,7 +12,7 @@ module.exports = {
         res.redirect('/');
     },
     isAdmin: function (req, res, next) {
-        if (!req.isAuthenticated() || req.user.role !== 'admin') { //If the user is not already logged in.
+        if (!req.isAuthenticated() || req.user.role !== 'admin') {
             res.redirect('/')
         };
         if (req.user.role === 'admin') {
