@@ -36,7 +36,7 @@ passport.deserializeUser((id, done) => {
     */
     const user = userController.getUserById(id);
     if (user) {
-        done(null, user);
+        return done(null, user);
     }
     done({ message: "User not found" }, null);
 });
