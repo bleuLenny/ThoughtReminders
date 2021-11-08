@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const {ensureAuthenticated, isAdmin} = require("../middleware/checkAuth");
 const reminderController = require("../controller/reminder_controller");
-const authController = require("../controller/auth_controller");
 
 // Routes start here
 router.get("/reminders", ensureAuthenticated, reminderController.list);
@@ -20,6 +19,6 @@ router.post("reminders/update/:id", ensureAuthenticated, reminderController.upda
 // Implement this yourself
 router.post("reminders/delete/:id", ensureAuthenticated, reminderController.delete);
 
-router.get("/dashboard", ensureAuthenticated, authController.dashboard);
+router.get("/dashboard", ensureAuthenticated, reminderController.dashboard);
 
 module.exports = router;

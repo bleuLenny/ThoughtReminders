@@ -76,6 +76,11 @@ let remindersController = {
 
     res.redirect("/reminders");
   },
+
+  dashboard: (req, res) => {
+    console.log("abc", req)
+    res.render("dashboard", {req});
+  }
 };
 
 module.exports = remindersController;
