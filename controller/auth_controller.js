@@ -25,13 +25,13 @@ let authController = {
     });
     res.render('auth/login')
   },
-  githubPage: (req, res) => {
-    res.render('auth/logingithub');
-  },
-  githubLoginSubmit: passport.authenticate('github', { failureRedirect: '/auth/login' }),
+  githubLoginSubmit: passport.authenticate("github"),
+  githubCallback: passport.authenticate('github', { failureRedirect: '/login' }),
   function(req, res) {
-    res.redirect('/reminders');
+    // Successful authentication, redirect home.
+    res.redirect('/');
   },
+
   logout: (req, res) => {
     req.logout();
     res.redirect('/auth/login'); //Then redirect user to the login page.
