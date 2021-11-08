@@ -26,9 +26,9 @@ I worked on the following tasks:
 
 Alex Amog:
 I worked on the following tasks:
-1. <Insert Some Task Here> - This task is responsible for xyz functionality.
-2. <Insert Some Task Here> - This task is responsible for xyz functionality.
-3. <Insert Some Task Here> - This task is responsible for xyz functionality.
+1. <Registration for users> - This task is responsible letting new users register an account into the database.
+2. <Logging in with a session> - This task is responsible for users to have a session when logged in, letting them access their reminders.
+3. <Not letting non-logged in users access reminders> - This task is responsible for not letting non-logged in users to access reminders.
 
 Alex Hong:
 I worked on the following tasks:
