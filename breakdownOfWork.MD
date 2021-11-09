@@ -26,10 +26,10 @@ I worked on the following tasks:
 
 Alex Amog:
 I worked on the following tasks:
-1. <Registration for users> - This task is responsible letting new users register an account into the database.
-2. <Logging in with a session> - This task is responsible for users to have a session when logged in, letting them access their reminders.
-3. <Not letting non-logged in users access reminders> - This task is responsible for not letting non-logged in users to access reminders.
-4. <Admin access> - This task is responsible for revoking sessions.
+1. <Local passport> - This task is responsible for local login with passport.
+2. <Github passport> - This task is responsible for users logging in with Github account.
+3. <Admin revoke sessions> - This task is responsible for revoking sessions from users.
+4. <Profile pictures for users> - This task is responsible for having profile pictures for users.
 
 Alex Hong:
 I worked on the following tasks:
