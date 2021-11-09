@@ -34,8 +34,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use((req, res, next) => {
-  console.log(`User details are: ${req.user}`);
-  console.log(`Session time: ${req.session['cookie']['originalMaxAge']}`) //Session cookie. Set this to 0 to revoke session.
+  // console.log(`Session time: ${req.session['cookie']['originalMaxAge']}`) //Session cookie. Set this to 0 to revoke session.
+  // console.log(req.sessionStore);
   next();
 });
 

@@ -9,7 +9,6 @@ const localLogin = new LocalStrategy(
         usernameField: "email", //We are logging in with email instead of username
     },
     (email, password, done) => {
-        console.log('Using local strategy')
         const user = userController.getUserByEmailIdAndPassword(email, password);
         return user
             ? done(null, user) //If true send the first parameter to the passport.seralizeUser
@@ -26,7 +25,6 @@ const githubLogin = new GitHubStrategy({
 },
     function (accessToken, refreshToken, profile, done) {
         const user = userController.findOrAdd(profile);
-        console.log(profile)
         return user
             ? done(null, user) //If true send the first parameter to the passport.seralizeUser
             : done(null, false, { //If false
