@@ -12,6 +12,7 @@
     <h2 class="text-center">Dashboard</h2>
     <p>Welcome <%= req.user.name %>
     </p>
+    <img src='<%=req.user.profile_pic%>'>
 </body>
 <form action='/auth/logout' method="get"><button type='submit'>Logout</button></form>
 

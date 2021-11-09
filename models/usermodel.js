@@ -38,7 +38,7 @@ const userModel = {
         if (user) {
             return user;
         }
-        user = { id: userDatabase.length + 1, name: profile["displayName"], githubID: profile.id, role: 'user' }
+        user = { id: userDatabase.length + 1, name: profile["displayName"], githubID: profile.id, role: 'user', profile_pic: String(profile.photos[0].value)}
         userDatabase.push(user) //If the github user is not already in the db, they will be added and then returned.
         return user
     },
