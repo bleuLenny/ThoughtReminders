@@ -9,7 +9,6 @@ const localLogin = new LocalStrategy(
         usernameField: "email", //We are logging in with email instead of username
     },
     (email, password, done) => {
-        console.log('Using local strategy')
         const user = userController.getUserByEmailIdAndPassword(email, password);
         return user
             ? done(null, user) //If true send the first parameter to the passport.seralizeUser
