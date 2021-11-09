@@ -28,8 +28,7 @@ Alex Amog:
 I worked on the following tasks:
 1. <Local passport> - This task is responsible for local login with passport.
 2. <Github passport> - This task is responsible for users logging in with Github account.
-3. <Admin revoke sessions> - This task is responsible for revoking sessions from users.
-4. <Profile pictures for users> - This task is responsible for having profile pictures for users.
+3. <Admin revoke sessions> - This task is responsible for revoking sessions from users. (needs to be merged.)
 
 Alex Hong:
 I worked on the following tasks:
