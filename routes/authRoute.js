@@ -14,6 +14,4 @@ router.get('/logout', ensureAuthenticated, authController.logout);
 
 router.get('/github', authController.githubLoginSubmit, authController.dashboard);
 router.get('/github/callback', authController.githubCB);
-
-
 module.exports = router
