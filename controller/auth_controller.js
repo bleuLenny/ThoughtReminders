@@ -29,6 +29,10 @@ let authController = {
     res.redirect('./login')
   },
   githubLoginSubmit: passport.authenticate("github"),
+  githubCB: passport.authenticate('github', {
+    successRedirect: '/dashboard',
+    failureRedirect: '/auth/login'
+  }),
   logout: (req, res) => {
     req.logout();
     res.redirect('/auth/login'); //Then redirect user to the login page.
