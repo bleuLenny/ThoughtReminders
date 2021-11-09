@@ -13,10 +13,5 @@ router.post('/login', authController.loginSubmit);
 router.get('/logout', ensureAuthenticated, authController.logout);
 
 router.get('/github', authController.githubLoginSubmit, authController.dashboard);
-router.get('/github/callback', passport.authenticate('github', { failureRedirect: '/auth/login' }),
-    function (req, res) {
-
-        res.redirect('/dashboard');
-    });
-
+router.get('/github/callback', authController.githubCB);
 module.exports = router
