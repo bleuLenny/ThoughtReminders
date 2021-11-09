@@ -2,6 +2,7 @@ const userDatabase = [
     {
         id: 1,
         name: "Cindy Smith",
+        profile_pic:"",
         email: "cindy@gmail.com",
         password: "cindy123",
         role: "user",
@@ -9,6 +10,7 @@ const userDatabase = [
     {
         id: 2,
         name: "Armaan Dhanji",
+        profile_pic:"",
         email: "armaan@gmail.com",
         password: "helloWorld!",
         role: "admin",
