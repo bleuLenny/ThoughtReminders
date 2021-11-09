@@ -26,7 +26,6 @@ const githubLogin = new GitHubStrategy({
 },
     function (accessToken, refreshToken, profile, done) {
         const user = userController.findOrAdd(profile);
-        console.log(profile)
         return user
             ? done(null, user) //If true send the first parameter to the passport.seralizeUser
             : done(null, false, { //If false

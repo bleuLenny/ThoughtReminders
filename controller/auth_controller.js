@@ -26,7 +26,7 @@ let authController = {
       email: req.body.email,
       password: req.body.password
     });
-    res.render('auth/login')
+    res.redirect('./login')
   },
   githubLoginSubmit: passport.authenticate("github"),
   logout: (req, res) => {
