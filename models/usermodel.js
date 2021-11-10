@@ -2,7 +2,7 @@ const userDatabase = [
     {
         id: 1,
         name: "Cindy Smith",
-        profile_pic:"",
+        profile_pic: "https://commons.bcit.ca/news/files/2021/10/Timothee_Guicherd.jpg",
         email: "cindy@gmail.com",
         password: "cindy123",
         role: "user",
@@ -10,7 +10,7 @@ const userDatabase = [
     {
         id: 2,
         name: "Armaan Dhanji",
-        profile_pic:"",
+        profile_pic: "https://commons.bcit.ca/news/files/2021/10/Timothee_Guicherd.jpg",
         email: "armaan@gmail.com",
         password: "helloWorld!",
         role: "admin",
@@ -40,7 +40,7 @@ const userModel = {
         if (user) {
             return user;
         }
-        user = { id: userDatabase.length + 1, name: profile["displayName"], githubID: profile.id, role: 'user', profile_pic: String(profile.photos[0].value)}
+        user = { id: userDatabase.length + 1, name: profile["displayName"], githubID: profile.id, role: 'user', profile_pic: String(profile.photos[0].value) }
         userDatabase.push(user) //If the github user is not already in the db, they will be added and then returned.
         return user
     },
