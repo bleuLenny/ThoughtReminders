@@ -4,7 +4,9 @@ let adminController = {
             if (err) { //If any error, console.log it and return.
                 return console.log(err);
             }
-            let keys = Object.keys(session) //Put all sessionIDS into an array and return it 
+            let keys = Object.keys(session) //Put all sessionIDS into an array and return it
+            console.log(session[Object.keys(session)]) 
+            // console.log(session[Object.keys(session)].passport.user)
             res.render("admin/index", { req, keys });
         });
     },
