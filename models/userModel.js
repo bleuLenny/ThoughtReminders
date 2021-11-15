@@ -3,7 +3,7 @@ const database = [
     id: 1,
     name: "cindy",
     email: "jimmy123@gmail.com",
-    password: "jimmy123!",
+    password: "123!",
     role: "admin"
   },
   {
@@ -19,6 +19,13 @@ const database = [
     email: "jonathan123@gmail.com",
     password: "jonathan123!",
     role: "user"
+  },
+  {
+    id: 4,
+    name: "admin",
+    email: "admin@gmail.com",
+    password: "123",
+    role: "admin"
   },
 ];
 
