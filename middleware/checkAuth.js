@@ -12,8 +12,8 @@ module.exports = {
     res.redirect("/reminders");
   },
   ensureAdmin: (req, res, next) => {
-    if(req.isAuthenticated() || req.user.role){
-      res.redirect("/reminders");
+    if(!req.isAuthenticated() || req.user.role !== "admin"){
+      res.redirect("/");
     };
     if (req.user.role === 'admin') {
         return next();
