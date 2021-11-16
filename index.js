@@ -24,10 +24,8 @@ app.use(
   })
 );
 
-const passport = require('./middleware/passport');
 const indexRoute = require('./routes/indexRoute');
 const authRoute = require('./routes/authRoute');
-const adminRoute = require('./routes/adminRoute');
 
 //Middlware
 app.use(ejsLayouts);
@@ -55,8 +53,6 @@ app.use(
   })
 );
 
-const authRoute = require("./routes/authRoute");
-const indexRoute = require("./routes/indexRoute");
 
 // Middleware for express
 app.use(express.json());
