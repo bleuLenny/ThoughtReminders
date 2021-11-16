@@ -11,6 +11,35 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: false }));
 app.use(ejsLayouts);
 app.set("view engine", "ejs");
+app.use(
+  session({
+    secret: "secret",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      httpOnly: true,
+      secure: false,
+      maxAge: 600000,
+    },
+  })
+);
+
+const passport = require('./middleware/passport');
+const indexRoute = require('./routes/indexRoute');
+const authRoute = require('./routes/authRoute');
+const adminRoute = require('./routes/adminRoute');
+
+//Middlware
+app.use(ejsLayouts);
+app.use(express.urlencoded({ extended: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use((req, res, next) => {
+  console.log(`User details are: ${req.user}`);
+  console.log(`Session time: ${req.session['cookie']['originalMaxAge']}`) //Session cookie. Set this to 0 to revoke session.
+  next();
+});
 
 // Fix this to work with passport! The registration does not need to work, you can use the fake database for this.
 app.use(

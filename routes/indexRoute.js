@@ -26,3 +26,4 @@ router.get("/admin", ensureAdmin, adminController.admin);
 router.post("/admin/delete/:id", ensureAuthenticated, adminController.delete);
 
 module.exports = router;
+

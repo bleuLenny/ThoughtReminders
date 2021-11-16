@@ -2,11 +2,14 @@ const passport = require("../middleware/passport");
 const {database} = require("../models/userModel");
 const fetch = require("node-fetch");
 
+
 let authController = {
   login: (req, res) => {
     res.render("auth/login");
   },
-
+  dashboard: (req, res) => {
+    res.render("./dashboard", { req });
+  },
   register: (req, res) => {
     res.render("auth/register");
   },
@@ -49,6 +52,7 @@ let authController = {
   },
 
   gitLogin: passport.authenticate("github"),
+
 };
 
 module.exports = authController;
