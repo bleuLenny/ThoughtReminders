@@ -1,18 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+<% if(req.user.role === "admin") { %>
+    <a href="/admin" class="btn btn-secondary">Admin dashboard</a>
+<% } %>
+<h1>Hello <%= req.user.name %></h1>
+<img src="<%= req.user.profile_img %>" alt="<%= req.user.profile_img_des %>" width="40" height="60">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <h2 class="text-center">Dashboard</h2>
-    <p>Welcome <%= req.user.name %>
-    </p>
-</body>
-<form action='/auth/logout' method="get"><button type='submit'>Logout</button></form>
-
-</html>

@@ -1,8 +1,17 @@
 let database = require("../database");
+const userController = require("../controller/userController");
 
 let remindersController = {
   list: (req, res) => {
-    res.render("reminder/index", { reminders: database.cindy.reminders });
+    const userName = req.user.name;
+    // let user = userController.getUserByName(userName);
+    // let userReminder = "No user found";
+    // if(user){
+    //   userReminder = database[userName].reminders;
+    // }
+    res.render("reminder/index", {
+      reminders: database.cindy.reminders,
+    });
   },
   dashboard: (req, res) => {
     res.render("./dashboard", { req });
@@ -69,6 +78,14 @@ let remindersController = {
 
     res.redirect("/reminders");
   },
+
+  dashboard: (req, res) => {
+    res.render("dashboard", {req});
+  },
+
+  admin: (req, res) => {
+    res.render("admindashboard", {req});
+  }
 };
 
 module.exports = remindersController;
