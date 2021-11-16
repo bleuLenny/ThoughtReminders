@@ -10,13 +10,13 @@ const gitLogin = new GitHubStrategy(
   {
     clientID: process.env.GITHUB_CLIENT_ID,
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
-    callbackURL: `http://localhost:3002/auth/github/callback`
+    callbackURL: `http://localhost:${process.env.PORT}/auth/github/callback`
   },
-  function (accessToken, refreshToken, profile, done) {
+  function(accessToken, refreshToken, profile, done) {
     const user = userController.getUserByGitHubID(profile);
     return user
-      ? done(null, user)
-      : done(null, false, {
+    ? done(null, user)
+    : done(null, false, {
         message: "Your login details are not valid. Please try again",
       });
   }
@@ -32,8 +32,8 @@ const localLogin = new LocalStrategy(
     return user
       ? done(null, user)
       : done(null, false, {
-        message: "Your login details are not valid. Please try again",
-      });
+          message: "Your login details are not valid. Please try again",
+        });
   }
 );
 
