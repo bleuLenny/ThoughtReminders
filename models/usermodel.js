@@ -6,6 +6,7 @@ const database = [
     password: "123!",
     role: "admin",
     profile_img: "",
+    profile_img_des: ""
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ const database = [
     password: "johnny123!",
     role: "user",
     profile_img: "",
+    profile_img_des:""
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ const database = [
     password: "jonathan123!",
     role: "user",
     profile_img: "",
+    profile_img_des: ""
   },
   {
     id: 4,
@@ -30,6 +33,7 @@ const database = [
     password: "123",
     role: "admin",
     profile_img: "",
+    profile_img_des: ""
   },
 ];
 
@@ -50,13 +54,13 @@ const userModel = {
   },
   findByGitHubID: (profile) => {
     let user = database.find((user) => user.githubID === profile.id);
-    if(!profile){
+    if (!profile) {
       throw new Error(`Couldn't find user with githubID: ${profile.id}`);
     }
     if (user) {
       return user;
     }
-    else{
+    else {
       user = {
         id: database.length + 1,
         githubID: profile.id,

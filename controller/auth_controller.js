@@ -35,15 +35,14 @@ let authController = {
     .then(val => val.json())
     .then(val => {
       const image = val.results[0];
-      const des = image.alt_description;
       const profile_img = image.urls.small;
+      console.log(userInput.email)
       database.push({
-        id: Date.now(),
+        id: database.length + 1,
         name: userInput.email.split("@")[0],
         email: userInput.email,
         password: userInput.password,
         profile_img: profile_img,
-        profile_img_des: des,
       });
   
       res.redirect("/auth/login");
