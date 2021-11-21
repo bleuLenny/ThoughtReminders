@@ -44,7 +44,26 @@ I worked on the following tasks:
 
 Alex Amog:
 I worked on the following tasks:
+1. <Watched upload image video> - This task is responsible for learning how to upload images with multer.
+2. <Insert Some Task Here> - This task is responsible for xyz functionality.
+3. <Insert Some Task Here> - This task is responsible for xyz functionality.
+
+Alex Hong:
+I worked on the following tasks:
 1. <Insert Some Task Here> - This task is responsible for xyz functionality.
+2. <Insert Some Task Here> - This task is responsible for xyz functionality.
+3. <Insert Some Task Here> - This task is responsible for xyz functionality.
+
+November 22th
+Julian Zhu:
+I worked on the following tasks:
+1. <Insert Some Task Here> - This task is responsible for xyz functionality.
+2. <Insert Some Task Here> - This task is responsible for xyz functionality.
+3. <Insert Some Task Here> - This task is responsible for xyz functionality.
+
+Alex Amog:
+I worked on the following tasks:
+1. <Prisma database implementation> This task is responsible for migrating the reminders and usermodels into the prisma database  
 2. <Insert Some Task Here> - This task is responsible for xyz functionality.
 3. <Insert Some Task Here> - This task is responsible for xyz functionality.
 
