@@ -4,7 +4,6 @@ const ejsLayouts = require("express-ejs-layouts");
 const session = require("express-session");
 const passport = require("./middleware/passport");
 const port = process.env.PORT || 3002;
-require('dotenv').config();
 const app = express();
 
 app.use(express.static(path.join(__dirname, "public")));
