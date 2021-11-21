@@ -6,7 +6,6 @@ const database = [
     password: "123!",
     role: "admin",
     profile_img: "",
-    profile_img_des: "",
   },
   {
     id: 2,
@@ -15,7 +14,6 @@ const database = [
     password: "johnny123!",
     role: "user",
     profile_img: "",
-    profile_img_des: "",
   },
   {
     id: 3,
@@ -24,7 +22,6 @@ const database = [
     password: "jonathan123!",
     role: "user",
     profile_img: "",
-    profile_img_des: "",
   },
   {
     id: 4,
@@ -33,7 +30,6 @@ const database = [
     password: "123",
     role: "admin",
     profile_img: "",
-    profile_img_des: "",
   },
 ];
 
@@ -66,7 +62,9 @@ const userModel = {
         githubID: profile.id,
         name: profile.displayName || profile.username,
         email: `${profile.username}@github.com`,
-        password: profile.username
+        password: profile.username,
+        profile_img: String(profile.photos[0].value)
+
       }
       database.push(user);
       return user;

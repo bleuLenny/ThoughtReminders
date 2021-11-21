@@ -4,11 +4,6 @@ const userController = require("../controller/userController");
 let remindersController = {
   list: (req, res) => {
     const userName = req.user.name;
-    // let user = userController.getUserByName(userName);
-    // let userReminder = "No user found";
-    // if(user){
-    //   userReminder = database[userName].reminders;
-    // }
     res.render("reminder/index", {
       reminders: database.cindy.reminders,
     });
@@ -52,7 +47,6 @@ let remindersController = {
   },
 
   update: (req, res) => {
-    // implement this code
     let reminderToFind = req.params.id; // find the id of item need to update
 
     // update the old data with new data that user typed in

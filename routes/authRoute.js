@@ -11,11 +11,7 @@ router.get("/login", forwardAuthenticated, authController.login);
 router.post("/login", authController.loginSubmit);
 
 router.get('/github', authController.gitLogin);
-router.get('/github/callback', passport.authenticate("github",  { failureRedirect: '/auth/login' }),
-function(req, res) {
-  // Successful authentication, redirect home.
-  res.redirect('/dashboard');
-});
+router.get('/github/callback',authController.githubCB);
 
 router.get("/logout", authController.logout);
 

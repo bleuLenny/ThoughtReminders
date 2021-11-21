@@ -52,6 +52,10 @@ let authController = {
   },
 
   gitLogin: passport.authenticate("github"),
+  githubCB: passport.authenticate('github', {
+    successRedirect: '/dashboard',
+    failureRedirect: '/auth/login',
+  }),
 
 };
 
