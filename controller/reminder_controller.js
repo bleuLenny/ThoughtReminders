@@ -1,5 +1,22 @@
 let database = require("../database");
-const userController = require("../controller/userController");
+const multer = require('multer');
+const imgur = require('imgur');
+const path = require('path');
+const fs = require('fs');
+
+const storage = multer.diskStorage({
+  destination: "../uploads",
+  filename: (req, file, callback) => {
+    callback(
+      null,
+      file.fieldname + '-' + Date.now() + path.extname(file.originalname)
+    );
+  },
+});
+
+const upload = multer({
+  storage: storage,
+});
 
 let remindersController = {
   list: (req, res) => {
@@ -85,6 +102,24 @@ let remindersController = {
 
   admin: (req, res) => {
     res.render("admindashboard", {req});
+  },
+
+  upload: (req, res) => {
+    res.render("upload_img");
+  },
+
+  uploadPost: async (req, res) => {
+    console.log(req.files);
+    const file = req.files;
+    try {
+      const url = await imgur.uploadFile(`./uploads/${file.filename}`);
+      res.json({message: url.data.link});
+      fs.unlinkSync(`./uploads/${file.filename}`);
+    } catch (error) {
+      console.log("error: ", error);
+    }
+
+    res.redirect("dashboard");
   }
 };
 

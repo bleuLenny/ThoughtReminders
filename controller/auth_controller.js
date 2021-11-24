@@ -28,27 +28,25 @@ let authController = {
     res.redirect("/auth/login");
   },
 
-  registerSubmit: (req, res,) => {
+  registerSubmit: async (req, res,) => {
     // implement
     userInput = req.body;
-    fetch(`https://api.unsplash.com/search/photos?client_id=${process.env.UNSPLASH_ACCESS_KEY}&query=cats&per_page=1`)
-    .then(val => val.json())
-    .then(val => {
-      const image = val.results[0];
-      const des = image.alt_description;
-      const profile_img = image.urls.small;
-      database.push({
-        id: Date.now(),
-        name: userInput.email.split("@")[0],
-        email: userInput.email,
-        password: userInput.password,
-        profile_img: profile_img,
-        profile_img_des: des,
-      });
+    const url = `https://api.unsplash.com/photos/random/?query=cats&client_id=${process.env.UNSPLASH_ACCESS_KEY}`;
+    const response = await fetch(url);
+    const responseJson = await response.json();
+    // console.log(responseJson)
+    let image = responseJson.urls.small;
+    let image_des = responseJson.description;
+    database.push({
+      id: Date.now(),
+      name: userInput.email.split("@")[0],
+      email: userInput.email,
+      password: userInput.password,
+      profile_img: image,
+      profile_img_des: image_des,
+    });
   
       res.redirect("/auth/login");
-    })
-    .catch((err) => console.log(err));
   },
 
   gitLogin: passport.authenticate("github"),

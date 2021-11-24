@@ -25,5 +25,8 @@ router.get("/dashboard", ensureAuthenticated, reminderController.dashboard);
 router.get("/admin", ensureAdmin, adminController.admin);
 router.post("/admin/delete/:id", ensureAuthenticated, adminController.delete);
 
+router.get("/upload", ensureAuthenticated, reminderController.upload);
+router.post("/upload/", ensureAuthenticated, reminderController.uploadPost)
+
 module.exports = router;
 

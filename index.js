@@ -33,11 +33,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use((req, res, next) => {
-  console.log(`User details are: ${req.user}`);
-  console.log(`Session time: ${req.session['cookie']['originalMaxAge']}`) //Session cookie. Set this to 0 to revoke session.
-  next();
-});
+// app.use((req, res, next) => {
+//   console.log(`User details are: ${req.user}`);
+//   console.log(`Session time: ${req.session['cookie']['originalMaxAge']}`) //Session cookie. Set this to 0 to revoke session.
+//   next();
+// });
 
 // Fix this to work with passport! The registration does not need to work, you can use the fake database for this.
 app.use(

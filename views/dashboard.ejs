@@ -2,5 +2,6 @@
     <a href="/admin" class="btn btn-secondary">Admin dashboard</a>
 <% } %>
 <h1>Hello <%= req.user.name %></h1>
-<img src="<%= req.user.profile_img %>" alt="<%= req.user.profile_img_des %>" width="40" height="60">
-
+<% if(req.user.profile_img) { %>
+    <img src="<%= req.user.profile_img %>" alt="<%= req.user.profile_img_des %>" width="40" height="60">
+<% } %>
