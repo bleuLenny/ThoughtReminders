@@ -20,8 +20,6 @@ November 8th (Second Sprint Complete)
 Julian Zhu:
 I worked on the following tasks:
 1. <Insert Some Task Here> - This task is responsible for xyz functionality.
-2. <Insert Some Task Here> - This task is responsible for xyz functionality.
-3. <Insert Some Task Here> - This task is responsible for xyz functionality.
 
 Alex Amog:
 I worked on the following tasks:
@@ -39,33 +37,23 @@ November 15th
 Julian Zhu:
 I worked on the following tasks:
 1. <Insert Some Task Here> - This task is responsible for xyz functionality.
-2. <Insert Some Task Here> - This task is responsible for xyz functionality.
-3. <Insert Some Task Here> - This task is responsible for xyz functionality.
 
 Alex Amog:
 I worked on the following tasks:
 1. <Watched upload image video> - This task is responsible for learning how to upload images with multer.
-2. <Insert Some Task Here> - This task is responsible for xyz functionality.
-3. <Insert Some Task Here> - This task is responsible for xyz functionality.
 
 Alex Hong:
 I worked on the following tasks:
-1. <Insert Some Task Here> - This task is responsible for xyz functionality.
-2. <Insert Some Task Here> - This task is responsible for xyz functionality.
-3. <Insert Some Task Here> - This task is responsible for xyz functionality.
+1. <Insert Some Task Here> - This task is responsible for fixed get image from unsplash with random image.
 
 November 22th
 Julian Zhu:
 I worked on the following tasks:
 1. <Insert Some Task Here> - This task is responsible for xyz functionality.
-2. <Insert Some Task Here> - This task is responsible for xyz functionality.
-3. <Insert Some Task Here> - This task is responsible for xyz functionality.
 
 Alex Amog:
 I worked on the following tasks:
-1. <Prisma database implementation> This task is responsible for migrating the reminders and usermodels into the prisma database  
-2. <Insert Some Task Here> - This task is responsible for xyz functionality.
-3. <Insert Some Task Here> - This task is responsible for xyz functionality.
+1. <Prisma database implementation> This task is responsible for migrating the reminders and usermodels into the prisma database
 
 Alex Hong:
 I worked on the following tasks:
