@@ -1,5 +1,7 @@
 let database = require("../database");
-const userController = require("../controller/userController");
+const imgur = require('imgur');
+const path = require('path');
+const fs = require('fs');
 
 let remindersController = {
   list: (req, res) => {
@@ -79,6 +81,25 @@ let remindersController = {
 
   admin: (req, res) => {
     res.render("admindashboard", {req});
+  },
+
+  upload: (req, res) => {
+    res.render("upload_img", {user: req.user});
+  },
+
+  uploadImage: async function (req,res) {
+    const file = req.file;
+    let user = req.user;
+    try {
+        const url = await imgur.uploadFile(path.resolve(__dirname, '../'+file.path));
+        fs.unlinkSync(path.resolve(__dirname, '../'+file.path));
+        user.profile_img = url.link;
+        user.profile_img_des = url.description;
+      } catch (error) {
+        console.log("error: ", error);
+      }
+      
+    res.render("upload_img", {user});
   }
 };
 

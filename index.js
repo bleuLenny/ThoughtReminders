@@ -32,7 +32,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-
 app.use("/", indexRoute);
 app.use("/auth", authRoute);
 
