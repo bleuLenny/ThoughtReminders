@@ -1,8 +1,25 @@
 const express = require("express");
 const router = express.Router();
+const multer = require('multer');
+const path = require('path');
+
 const {ensureAuthenticated, isAdmin, ensureAdmin} = require("../middleware/checkAuth");
 const reminderController = require("../controller/reminder_controller");
 const adminController = require("../controller/admin_controller");
+
+const storage = multer.diskStorage({
+  destination: "uploads/",
+  filename: (req, file, callback) => {
+    callback(
+      null,
+      file.fieldname + '-' + Date.now() + path.extname(file.originalname)
+    );
+  },
+});
+
+const upload = multer({
+  storage: storage,
+});
 
 // Routes start here
 router.get("/reminders", ensureAuthenticated, reminderController.list);
@@ -26,7 +43,7 @@ router.get("/admin", ensureAdmin, adminController.admin);
 router.post("/admin/delete/:id", ensureAuthenticated, adminController.delete);
 
 router.get("/upload", ensureAuthenticated, reminderController.upload);
-router.post("/upload/", ensureAuthenticated, reminderController.uploadPost)
+router.post("/upload", ensureAuthenticated, upload.single("image"), reminderController.uploadImage)
 
 module.exports = router;
 

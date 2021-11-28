@@ -1,22 +1,7 @@
 let database = require("../database");
-const multer = require('multer');
 const imgur = require('imgur');
 const path = require('path');
 const fs = require('fs');
-
-const storage = multer.diskStorage({
-  destination: "../uploads",
-  filename: (req, file, callback) => {
-    callback(
-      null,
-      file.fieldname + '-' + Date.now() + path.extname(file.originalname)
-    );
-  },
-});
-
-const upload = multer({
-  storage: storage,
-});
 
 let remindersController = {
   list: (req, res) => {
@@ -105,21 +90,22 @@ let remindersController = {
   },
 
   upload: (req, res) => {
-    res.render("upload_img");
+    res.render("upload_img", {user: req.user});
   },
 
-  uploadPost: async (req, res) => {
-    console.log(req.files);
-    const file = req.files;
+  uploadImage: async function (req,res) {
+    const file = req.file;
+    let user = req.user;
     try {
-      const url = await imgur.uploadFile(`./uploads/${file.filename}`);
-      res.json({message: url.data.link});
-      fs.unlinkSync(`./uploads/${file.filename}`);
-    } catch (error) {
-      console.log("error: ", error);
-    }
-
-    res.redirect("dashboard");
+        const url = await imgur.uploadFile(path.resolve(__dirname, '../'+file.path));
+        fs.unlinkSync(path.resolve(__dirname, '../'+file.path));
+        user.profile_img = url.link;
+        user.profile_img_des = url.description;
+      } catch (error) {
+        console.log("error: ", error);
+      }
+      
+    res.render("upload_img", {user});
   }
 };
 

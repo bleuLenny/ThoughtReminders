@@ -1,5 +1,9 @@
-<form action="/upload" method="post">
-    <input type="file" id="file" name="file">
-    <input type="submit">
+<form action="/upload" method="POST" enctype=multipart/form-data>
+    <input type="file" name="image">
+    <button class="submit-btn" type="submit">Upload</button>
 </form>
+
+<% if(user.profile_img) { %>
+    <img src="<%= user.profile_img %>" alt="<%= user.profile_img_des %>" width="40" height="60">
+<% } %>
 <!-- <script src="script.js"></script> -->
