@@ -4,6 +4,7 @@
   <li>Signing up with a local or Github account</li>
   <li>Logging into your own private account.</li>
   <li>Create, modify, and delete your own reminders.</li>
+  <li>Admin page to revoke sessions</li>
 </ul>
 
 <h2>Getting started</h2>
